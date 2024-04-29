@@ -1,0 +1,61 @@
+This file uses the `doctest` module to test the `matrix_divided` function.
+
+>>> import matrix_divided
+
+# Test 1: Valid matrix and divisor
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> div = 3
+>>> expected = [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> result = matrix_divided(matrix, div)
+>>> print(result)
+>>> assert result == expected
+
+# Test 2: Empty matrix
+>>> matrix = []
+>>> div = 3
+>>> expected = TypeError("matrix must be a matrix (list of lists) of integers/floats")
+>>> try:
+...   result = matrix_divided(matrix, div)
+... except TypeError as e:
+...   print(e)
+>>> assert str(expected) == str(e)
+
+# Test 3: Non-numeric matrix element
+>>> matrix = [[1, 2, "hello"], [4, 5, 6]]
+>>> div = 3
+>>> expected = TypeError("matrix must be a matrix (list of lists) of integers/floats")
+>>> try:
+...   result = matrix_divided(matrix, div)
+... except TypeError as e:
+...   print(e)
+>>> assert str(expected) == str(e)
+
+# Test 4: Inconsistent row sizes
+>>> matrix = [[1, 2, 3], [4, 5]]
+>>> div = 3
+>>> expected = TypeError("Each row of the matrix must have the same size")
+>>> try:
+...   result = matrix_divided(matrix, div)
+... except TypeError as e:
+...   print(e)
+>>> assert str(expected) == str(e)
+
+# Test 5: Non-numeric divisor
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> div = "hello"
+>>> expected = TypeError("div must be a number")
+>>> try:
+...   result = matrix_divided(matrix, div)
+... except TypeError as e:
+...   print(e)
+>>> assert str(expected) == str(e)
+
+# Test 6: Divisor is zero
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> div = 0
+>>> expected = ZeroDivisionError("division by zero")
+>>> try:
+...   result = matrix_divided(matrix, div)
+... except ZeroDivisionError as e:
+...   print(e)
+>>> assert str(expected) == str(e)
