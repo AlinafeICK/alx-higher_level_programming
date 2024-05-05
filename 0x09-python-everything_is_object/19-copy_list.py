@@ -8,16 +8,4 @@
 
 
 def copy_list(my_list):
-    """
-    Copy a list to a new list.
-
-    Parameters:
-    my_list (list): The list to be copied.
-
-    Returns:
-    list: A new list containing the elements of the input list.
-    """
-    new_list = []
-    for i in my_list:
-        new_list.append(i)
-    return new_list
+   return my_list.copy()
