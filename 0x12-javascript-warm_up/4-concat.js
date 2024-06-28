@@ -2,8 +2,8 @@
 
 const args = process.argv.slice(2);
 
-const firstArg = args[0];
-const secondArg = args[1];
-
-console.log('${firstArg} is ${secondArg}');
-
+if (args[0] === undefined) {
+    console.log("No argument");
+} else {
+console.log(args[0]);
+}
