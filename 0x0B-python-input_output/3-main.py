@@ -21,7 +21,7 @@ print(s_my_list)
 print(type(s_my_list))
 
 try:
-    my_set = {132, 3 }
+    my_set = {132, 3}
     s_my_list = to_json_string(my_set)
     print(s_my_list)
     print(type(s_my_list))
