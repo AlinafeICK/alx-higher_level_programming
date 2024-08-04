@@ -20,7 +20,8 @@ class Student:
         if attrs is a list of strings, only attribute names contained
         in this list are returned
         """
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
-            return {key: value for key, value in self.__dict__.items() if key in attrs}
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
 
